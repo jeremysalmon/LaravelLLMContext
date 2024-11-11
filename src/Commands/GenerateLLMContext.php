@@ -1,10 +1,10 @@
 <?php
 
-use jeremysalmon\LaravelLLMContext\Commands;
+namespace JeremySalmon\LaravelLLMContext\Commands;
+
 use Illuminate\Console\Command;
 use Illuminate\Support\Facades\File;
 use Illuminate\Support\Str;
-use ReflectionClass;
 
 class GenerateLLMContext extends Command
 {
@@ -76,7 +76,7 @@ class GenerateLLMContext extends Command
             }
 
             $model = new $className;
-            $reflection = new ReflectionClass($model);
+            $reflection = new \ReflectionClass($model);
 
             $this->context['models'][class_basename($className)] = [
                 'table' => $model->getTable(),
@@ -101,7 +101,7 @@ class GenerateLLMContext extends Command
         }
         
         // Try to extract table name from up() method using reflection
-        $reflection = new ReflectionClass($migration);
+        $reflection = new \ReflectionClass($migration);
         $method = $reflection->getMethod('up');
         $contents = file_get_contents($reflection->getFileName());
         
@@ -127,7 +127,7 @@ class GenerateLLMContext extends Command
         return null;
     }
 
-    private function getModelRelationships(ReflectionClass $reflection)
+    private function getModelRelationships(\ReflectionClass $reflection)
     {
         $relationships = [];
         
