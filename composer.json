@@ -1,0 +1,30 @@
+{
+    "name": "jeremysalmon/laravel-llm-context",
+    "description": "Generate LLM context from Laravel applications",
+    "type": "library",
+    "license": "MIT",
+    "authors": [
+        {
+            "name": "Jeremy Salmon",
+            "email": "js@openlab.ma"
+        }
+    ],
+    "require": {
+        "php": "^7.4|^8.0",
+        "illuminate/support": "^8.0|^9.0|^10.0"
+    },
+    "autoload": {
+        "psr-4": {
+            "jeremysalmon\\LaravelLLMContext\\": "src/"
+        }
+    },
+    "extra": {
+        "laravel": {
+            "providers": [
+                "jeremysalmon\\LaravelLLMContext\\LLMContextServiceProvider"
+            ]
+        }
+    },
+    "minimum-stability": "dev",
+    "prefer-stable": true
+}
