@@ -1,9 +1,9 @@
 <?php
 
-namespace jeremysalmon\LaravelLLMContext;
+namespace JeremySalmon\LaravelLLMContext;
 
 use Illuminate\Support\ServiceProvider;
-use YourUsername\LaravelLLMContext\Commands\GenerateLLMContext;
+use JeremySalmon\LaravelLLMContext\Commands\GenerateLLMContext;
 
 class LLMContextServiceProvider extends ServiceProvider
 {
@@ -15,7 +15,7 @@ class LLMContextServiceProvider extends ServiceProvider
             ]);
 
             $this->publishes([
-                __DIR__ . '/config/llm-context.php' => config_path('llm-context.php'),
+                __DIR__ . '/../config/llm-context.php' => config_path('llm-context.php'),
             ], 'llm-context-config');
         }
     }
@@ -23,7 +23,7 @@ class LLMContextServiceProvider extends ServiceProvider
     public function register()
     {
         $this->mergeConfigFrom(
-            __DIR__ . '/config/llm-context.php',
+            __DIR__ . '/../config/llm-context.php',
             'llm-context'
         );
     }
